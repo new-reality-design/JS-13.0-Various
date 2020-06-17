@@ -30,130 +30,46 @@ const gameBot = function () {
 
   let getUserResponse = () => {
     let usersResponse = prompt('Угадай число от 1 до 100');
-   
+
     if (usersResponse === null) {
-        //— если пользователь нажимает "Отмена", то игра заканчивается.
+      //— если пользователь нажимает "Отмена", то игра заканчивается.
       alert('Game over');
       console.log('Game over');
       return false;
 
-    } else if (isNumber(usersResponse)) {       
-        if (+usersResponse === botNumber) {
-          alert('Успех!');
-          console.log('Успех!');
-          return true;
-  
-        } else if (+usersResponse < botNumber) {
-          //— если пользовательское число меньше, 
-          //то бот выводит "Загаданное число больше" и предлагает ввести новый вариант;
-          alert('Загаданное число больше');
-          console.log('Загаданное число больше');
-          return getUserResponse();
-  
-        } else if (+usersResponse > botNumber) {
-          //— если пользовательское число больше, 
-          //то бот выводит "Загаданное число меньше" и предлагает ввести новый вариант;
-          alert('Загаданное число меньше');
-          console.log('Загаданное число меньше');
-          return getUserResponse();
-        }
+    } else if (isNumber(usersResponse)) {
+      if (+usersResponse === botNumber) {
+        alert('Успех!');
+        console.log('Успех!');
+        return true;
+
+      } else if (+usersResponse < botNumber) {
+        //— если пользовательское число меньше, 
+        //то бот выводит "Загаданное число больше" и предлагает ввести новый вариант;
+        alert('Загаданное число больше');
+        console.log('Загаданное число больше');
+        return getUserResponse();
+
+      } else if (+usersResponse > botNumber) {
+        //— если пользовательское число больше, 
+        //то бот выводит "Загаданное число меньше" и предлагает ввести новый вариант;
+        alert('Загаданное число меньше');
+        console.log('Загаданное число меньше');
+        return getUserResponse();
+      }
 
     } else if (!isNumber(usersResponse)) {
-        //— если пользователь ввел не число, 
-        //то выводит сообщение "Введи число!" и предлагает ввести новый вариант;
-        alert('Введи число!');
-        console.log('Введи число!');
-        return getUserResponse();
+      //— если пользователь ввел не число, 
+      //то выводит сообщение "Введи число!" и предлагает ввести новый вариант;
+      alert('Введи число!');
+      console.log('Введи число!');
+      return getUserResponse();
     }
   };
-  
-return getUserResponse;
+
+  return getUserResponse;
 };
 
 let initiateGame = gameBot();
 initiateGame();
-console.dir(initiateGame);
-
-    // else {
-    //   alert('Game over');
-    //   console.log('Game over');
-    //   return false;
-    // }   
-    // else if (usersResponse === null) {
-    //   //— если пользователь нажимает "Отмена", то игра заканчивается.
-    //   alert('Game over');
-    //   console.log('Game over');
-    //   return false;
-    // }     
-  
-
-
-
-
-  /**
-  return function () {
-    let usersResponse = +prompt('Угадай число от 1 до 100');
-
-    if (usersResponse === null) {
-      alert('Game over');
-      return false;
-    }
-
-
-    if (isNumber(usersResponse)) {
-      console.log('URA');
-      if (usersResponse === botNumber) {
-        alert('Success!');
-        return true;
-      } else if (usersResponse < botNumber) {
-        alert('too small!');
-        return gameBot();
-      } else if (usersResponse > botNumber) {
-        alert('TOO BIG!');
-        return gameBot();
-      }
-
-    }
-    else if (!isNumber(usersResponse)) {
-      alert('we need a number!');
-      return gameBot();
-    }
-  };
- */
-
-
-  /*
-   return function () {
-      let usersResponse = +prompt('Угадай число от 1 до 100');
-  
-      if (isNumber(usersResponse)) {
-        console.log('URA');
-        if (usersResponse === botNumber) {
-          alert('Success!');
-          return true;
-        } else if (usersResponse < botNumber) {
-          alert('too small!');
-          return gameBot();
-        } else if (usersResponse > botNumber) {
-          alert('TOO BIG!');
-          return gameBot();
-        }
-  
-      } else if (usersResponse === null) {
-        alert('Game over');
-        return false;
-      }
-      else if (!isNumber(usersResponse)) {
-        alert('we need a number!');
-        return gameBot();
-      }
-    };
-   */
-
-
-
-
-
-
-
-// let randomNumber2 = Math.floor(Math.random() * 100 + 1);
+// console.dir(initiateGame);
